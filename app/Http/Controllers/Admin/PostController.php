@@ -136,7 +136,7 @@ class PostController extends Controller
 
         
         $post->update($form_data);
-
+        $post->tags()->sync(isset($form_data['tags']) ? $form_data['tags'] : []);
         return redirect()->route('admin.posts.show', $post->id);
     }
 

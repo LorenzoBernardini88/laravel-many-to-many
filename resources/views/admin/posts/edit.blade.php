@@ -6,19 +6,19 @@
     @method('PUT')
     <div class="form-group">
         <label for="post_author">Author</label>
-        <input  type="text" class="form-control" name="post_author" placeholder="...">
+        <input  type="text" class="form-control" name="post_author" value="{{$post->post_author}}">
     </div>
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" name="title" placeholder="...">
+        <input type="text" class="form-control" name="title" value="{{ $post->title}}">
     </div>
     <div class="form-group">
         <label class="d-block" for="content">Content</label>
-        <textarea  name="content" cols="80" rows="" placeholder="..."></textarea>
+        <textarea  name="content" cols="80" rows="" >{{ $post->content }}</textarea>
     </div>
     <div class="form-group col-md-2">
         <label for="post_date">Date</label>
-        <input  type="date" class="form-control" name="post_date">
+        <input  type="date" class="form-control" name="post_date" value="{{ $post->post_date}}">
     </div>
     <div class="form-group">
         <label>Tags</label>
