@@ -20,6 +20,20 @@
         <label for="post_date">Date</label>
         <input  type="date" class="form-control" name="post_date">
     </div>
+    <div class="form-group">
+        <label>Tags</label>
+        @foreach($tags as $tag)
+            
+            <div class="form-check">
+                <input class="form-check-input" name="tags[]" type="checkbox" 
+                value="{{$tag->id }}" id="{{$tag->slug}}" {{ ($post->tags->contains($tag)) ? 'checked' : ""}} >
+                <label class="form-check-label" for="{{$tag->slug}}">
+                    {{$tag->name}}
+                </label>
+            </div>
+
+        @endforeach
+    </div>
     <div class="form-group col-md-2">
         <label>Categoria</label>
         <select name="category_id"

@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -22,7 +23,8 @@ class PostController extends Controller
     public function index()
     {
         $data_post = Post::all();
-        return view('admin.posts.index',compact('data_post'));
+        $tags = Tag::all();
+        return view('admin.posts.index',compact('data_post','tags'));
     }
 
     /**
@@ -32,8 +34,9 @@ class PostController extends Controller
      */
     public function create(Post $post)
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.create', compact('post','categories'));
+        return view('admin.posts.create', compact('post','categories','tags'));
     }
 
     /**
@@ -68,6 +71,7 @@ class PostController extends Controller
 
         
         $newpost = Post::create($form_data);
+        $newpost->tags()->sync($form_data['tags']);
 
         return redirect()->route('admin.posts.show', $newpost->id);
     }
@@ -92,7 +96,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.posts.edit',compact('post','categories'));
+        $tags = Tag::all();
+        return view('admin.posts.edit',compact('post','categories','tags'));
     }
 
     /**
