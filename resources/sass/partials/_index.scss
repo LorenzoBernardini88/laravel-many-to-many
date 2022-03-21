@@ -1,0 +1,52 @@
+body{
+    background-color: rgba(91, 185, 184,0.6);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+h1{
+    text-transform: capitalize;
+    color: #2C3845;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'Smooch Sans', sans-serif;
+
+}
+.ms_table{
+    width: 90%;
+    margin: 0 auto;
+    border-spacing: none;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    color: #fefee9;
+    font-size: 18px;
+
+    thead{
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 30px;
+        font-family: 'Smooch Sans', sans-serif;
+        tr{
+            background-color: #2C3845;
+        }
+    }
+    
+}
+th,
+td{
+    text-align: center;
+    line-height: 23px;
+}
+tr:nth-child(odd){
+    background-color: #202932;
+}
+tr:nth-child(even){
+    background-color: #2C3845;
+}
+td:last-child{
+    display: flex;
+    gap: 5px;
+}
+.btn-info{
+    background-color: #5BB9B8;
+}
